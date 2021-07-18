@@ -2,12 +2,6 @@ package com.company;
 
 
 public class Main {
-    private final boolean flag = true;
-
-    public Main() {
-        (new Inner()).test();
-    }
-
     public static void main(String[] args) {
         //int result = sumN(5);
        //System.out.println(result);
@@ -16,14 +10,15 @@ public class Main {
 
         //tail recursive are better because we do not do anything once function returns.
         System.out.println(fact(5,1));
+        secondLargest();
     }
-
-    public static int sumN(int n) {
+public static int sumN(int n) {
         if (n <= 1) {
             return 1;
         }
 
         return n + sumN(n - 1);
+
     }
     public static void print1toN(int n){
         if(n==0){
@@ -42,25 +37,38 @@ public class Main {
         return fact(n-1,n*k);
 
     }
-    public void sample() {
-        System.out.println("Sample");
-    }
 
-    class Inner {
-        void test() {
-            if (Main.this.flag) {
-                sample();
-            }
-        }
-    }
+
+public static void secondLargest(){
+        int[] test;
+
+                test = new int[]{78,1089,1,4,900};
+
+
+
+              int r=-1,largest=0;
+              int index=0;
+              for(int i=1;i<test.length;i++){
+                  if(test[i]>test[largest]){
+                      r=largest;
+                      largest=i;
+
+                  }
+                  else if(test[i]!=test[largest]){
+                      if(r==-1 || test[i]>test[r]){
+                          index= i;
+                      }
+                  }
+              }
+
+              System.out.println(test[index]);
 }
-
-abstract class AbstractExample {
-    public abstract int sum(int a, int b);
-
-    public void print() {
-        System.out.println("I am from abstract");
     }
-}
+
+
+
+
+
+
 
 
