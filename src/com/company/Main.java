@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         //int result = sumN(5);
@@ -12,7 +14,8 @@ public class Main {
         //System.out.println(fact(5,1));
         //secondLargest();
         //reverseArray();
-        removeDup();
+        //removeDup();
+        leftRotateByD();
     }
 public static int sumN(int n) {
         if (n <= 1) {
@@ -109,7 +112,92 @@ public static void removeDup(){
     }
 
 }
+
+public static void moveZerosToEndNaive(){
+    int[] h={3,0,3,0,9,0};
+
+    int result=0;
+
+
+    label: for(int i=0;i<h.length;i++){
+        if(h[i]==0){
+            inner: for(int j=i+1;j<h.length;j++){
+                if(h[j]!=0){
+                    int temp=h[i];
+                    h[i]=h[j];
+                    h[j]=temp;
+                    break inner;
+                }
+
+            }
+        }
+    }
+
+
+    for(int i=0;i<h.length;i++){
+        System.out.println(h[i]);
+    }
 }
+
+public static void moveZeroesToEndSingleLoop(){
+    int[] h={3,0,9,0};
+    int count=0;
+    for(int i=0;i<h.length;i++){
+        if(h[i]!=0){
+            int temp=h[i];
+            h[i]=h[count];
+            h[count]=temp;
+            count++;
+        }
+    }
+
+
+    for(int i=0;i<h.length;i++){
+        System.out.println(h[i]);
+    }
+}
+
+
+public static void leftRotateArrayByOne(){
+    int[] h={1,2,3,4};
+
+    int temp=h[0];
+    int n= h.length;
+
+    for(int i=1;i<n;i++){
+        h[i-1]=h[i];
+    }
+
+    h[n-1]=temp;
+
+    System.out.println(" ");
+    for(int i=0;i<n;i++){
+        System.out.print(h[i]+" ");
+    }
+}
+
+public static void leftRotateByD(){
+        int[] arr={2,3,5,6,7};
+        int d=2;
+        int n= arr.length;
+        int temp[]= new int[d];
+        for(int i=0;i<d;i++){
+            temp[i]=arr[i];
+        }
+       for(int i=d;i<n;i++){
+           arr[i-d]=arr[i];
+       }
+       for(int i=0;i<d;i++){
+           arr[n-d+i]=temp[i];
+       }
+
+    for(int i=0;i<arr.length;i++){
+        System.out.println(arr[i]);
+    }
+}
+
+}
+
 
 
 
