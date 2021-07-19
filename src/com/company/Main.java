@@ -92,23 +92,25 @@ public static void reverseArray(){
 
 public static void removeDup(){
     int[] h={2,3,4,4,5,6,6,6};
-    int[] temp = new int[h.length];
+
     int res=1;
-    temp[0]=h[0];
+
 
     for(int i=0;i<h.length;i++){
-        if(temp[res-1]!=h[i]){
-            temp[res]=h[i];
+        if(h[res-1]!=h[i]){
+            h[res]=h[i];
             res++;
         }
     }
 
 
     for(int i=0;i<res;i++){
-        System.out.println(temp[i]);
+        System.out.println(h[i]);
     }
+
 }
-    }
+}
+
 
 
 
