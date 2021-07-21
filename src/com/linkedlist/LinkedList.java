@@ -13,7 +13,8 @@ public class LinkedList {
         //insertEnd(45,head);
         //printRecursive(head);
         //head = deleteHead(head);
-        deleteTail(head);
+        //deleteTail(head);
+        head=insertAtPosition(head,3,34);
         printRecursive(head);
     }
 
@@ -73,6 +74,22 @@ public class LinkedList {
 
         curr.next=null;
         return curr;
+    }
+
+    public static Node insertAtPosition(Node head, int position, int data){
+        Node temp = new Node(data);
+        if(position==1){
+            temp.next=head;
+            return temp;
+        }
+        Node current = head;
+        for(int i=1;i<=position-2 && current!=null;i++){
+            current=current.next;
+        }
+        if(current==null){return null;}
+        temp.next=current.next;
+        current.next=temp;
+        return head;
     }
 }
 
