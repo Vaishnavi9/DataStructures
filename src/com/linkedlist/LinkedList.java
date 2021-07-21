@@ -14,8 +14,10 @@ public class LinkedList {
         //printRecursive(head);
         //head = deleteHead(head);
         //deleteTail(head);
-        head=insertAtPosition(head,3,34);
-        printRecursive(head);
+       // head=insertAtPosition(head,3,34);
+        //printRecursive(head);
+        //int x=searchLinkedList(head,30);
+        //System.out.println(x);
     }
 
     public static void print(Node head) {
@@ -90,6 +92,19 @@ public class LinkedList {
         temp.next=current.next;
         current.next=temp;
         return head;
+    }
+
+
+    public static int searchLinkedList(Node head, int x){
+        int pos=1;
+        while(head!=null){
+            if(head.data==x) {
+                return pos;
+            }
+            head=head.next;
+            pos+=1;
+        }
+        return -1;
     }
 }
 
