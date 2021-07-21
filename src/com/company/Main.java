@@ -15,7 +15,9 @@ public class Main {
         //secondLargest();
         //reverseArray();
         //removeDup();
-        leftRotateByD();
+        //leftRotateByD();
+        //sortWithSingleLoop();
+        binarySearchIterative();
     }
 public static int sumN(int n) {
         if (n <= 1) {
@@ -196,6 +198,53 @@ public static void leftRotateByD(){
     }
 }
 
+public static void sortWithSingleLoop(){
+        int arr[]={2,51,21,3};
+    for (int j = 0; j < arr.length - 1; j++) {
+
+        // Type Conversion of char to int.
+        int d1 = arr[j];
+        int d2 = arr[j + 1];
+
+        // Comparing the ascii code.
+        if (d1 > d2) {
+
+            // Swapping of the characters
+            int temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+            j = -1;
+        }
+    }
+
+    for(int i=0;i<arr.length;i++){
+        System.out.println(arr[i]);
+    }
+}
+
+
+public static void binarySearchIterative(){
+    int arr[]={40,0};
+    int n=21;
+    int start=0;
+    int end=arr.length-1;
+    int result=0;
+    while(start<=end){
+        int mid =(start+end)/2;
+        if(arr[mid]==n){
+            result=mid;
+            break;
+        }
+        else if(arr[mid]>n){
+            end=mid-1;
+        }
+        else if(arr[mid]<n){
+            start=mid+1;
+        }
+    }
+
+    System.out.println(arr[result]+" "+result);
+}
 }
 
 
