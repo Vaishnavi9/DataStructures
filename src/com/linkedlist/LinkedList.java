@@ -10,7 +10,10 @@ public class LinkedList {
        // print(head);
        // head=insertBegin(89,head);
         //printRecursive(head);
-        insertEnd(45,head);
+        //insertEnd(45,head);
+        //printRecursive(head);
+        //head = deleteHead(head);
+        deleteTail(head);
         printRecursive(head);
     }
 
@@ -50,6 +53,26 @@ public class LinkedList {
         }
         head.next=temp;
         return temp;
+    }
+
+    public static Node deleteHead(Node head){
+        if(head==null){
+            return null;
+        }
+        else
+            return head.next;
+    }
+
+    public static Node deleteTail(Node head){
+        if(head==null){return null;}
+        if(head.next==null){return null;}
+        Node curr = head;
+        while(curr.next.next!=null){
+            curr = curr.next;
+        }
+
+        curr.next=null;
+        return curr;
     }
 }
 
