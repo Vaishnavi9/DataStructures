@@ -7,17 +7,22 @@ public class LinkedList {
         head.next = new Node(20);
         head.next.next = new Node(30);
         head.next.next.next = new Node(40);
-       // print(head);
-       // head=insertBegin(89,head);
-        //printRecursive(head);
-        //insertEnd(45,head);
-        //printRecursive(head);
-        //head = deleteHead(head);
-        //deleteTail(head);
-       // head=insertAtPosition(head,3,34);
-        //printRecursive(head);
-        //int x=searchLinkedList(head,30);
-        //System.out.println(x);
+        print(head);
+        System.out.println();
+        head=insertBegin(89,head);
+        printRecursive(head);
+        System.out.println();
+        insertEnd(45,head);
+        printRecursive(head);
+        System.out.println();
+        head = deleteHead(head);
+        deleteTail(head);
+        System.out.println();
+        head=insertAtPosition(head,3,34);
+        printRecursive(head);
+        System.out.println();
+        int x=searchLinkedList(head,30);
+        System.out.println(x);
     }
 
     public static void print(Node head) {
@@ -34,7 +39,7 @@ public class LinkedList {
         if(head==null){
            return;
         }
-        System.out.println(head.data);
+        System.out.print(head.data+" ");
         head=head.next;
         printRecursive(head);
     }
@@ -114,6 +119,6 @@ class Node{
 
     Node(int x){
         data=x;
-        next=null;
+        //next=null;
     }
 }

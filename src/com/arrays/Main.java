@@ -1,7 +1,8 @@
-package com.company;
+package com.arrays;
 
 
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,11 +13,11 @@ public class Main {
 
         //tail recursive are better because we do not do anything once function returns.
         //System.out.println(fact(5,1));
-        //secondLargest();
-        //reverseArray();
-        //removeDup();
-        //leftRotateByD();
-        //sortWithSingleLoop();
+        secondLargest();
+        reverseArray();
+        removeDup();
+        leftRotateByD();
+        sortWithSingleLoop();
         binarySearchIterative();
     }
 public static int sumN(int n) {

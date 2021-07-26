@@ -1,4 +1,4 @@
-package com.company;
+package com.arrays;
 
  class Singleton{
      private static Singleton single_instance = null;
