@@ -2,7 +2,7 @@ package com.arrays;
 
 
 /*
-* Thread safe but gets instantiated even when not required.
+* Not thread safe
 * */
  class Singleton{
      private static Singleton single_instance = null;
