@@ -1,4 +1,5 @@
-package com.arrays;
+package com.singletonways;
+
 /*
 * volatile = solves visibility issues
 * atomic = solves synchronization issues
