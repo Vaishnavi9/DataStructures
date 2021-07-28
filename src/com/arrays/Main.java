@@ -1,6 +1,7 @@
 package com.arrays;
 
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -13,12 +14,15 @@ public class Main {
 
         //tail recursive are better because we do not do anything once function returns.
         //System.out.println(fact(5,1));
-        secondLargest();
+        int[] arr={23,1,456,3456};
+        /*secondLargest();
         reverseArray();
         removeDup();
         leftRotateByD();
         sortWithSingleLoop();
-        binarySearchIterative();
+        binarySearchIterative();*/
+        System.out.println(findNumbers(arr));
+        Object o;
     }
 public static int sumN(int n) {
         if (n <= 1) {
@@ -246,6 +250,12 @@ public static void binarySearchIterative(){
 
     System.out.println(arr[result]+" "+result);
 }
+
+
+    public static int findNumbers(int[] nums) {
+        return (int) Arrays.stream(nums).mapToObj(String::valueOf).filter(str-> str.length() %2==0).count();
+
+    }
 }
 
 

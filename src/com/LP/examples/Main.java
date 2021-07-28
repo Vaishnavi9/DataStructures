@@ -1,15 +1,41 @@
-package com.Leetcode.examples;
+package com.LP.examples;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
-        int arr[] ={0,1,1,1,1,0,0,0};
+        //int arr[] ={0,1,1,1,1,0,0,0};
         //System.out.println(findMaxConsecutiveOnes(arr));
-       // System.out.println(findMaxConsecutiveOnesEffective(arr));
-        int largestK[] ={56,90,89,65,45};
-        System.out.println(kthLargestElement(largestK,4));
+        // System.out.println(findMaxConsecutiveOnesEffective(arr));
+        //int largestK[] ={56,90,89,65,45};
+        //System.out.println(kthLargestElement(largestK,2));
+
+        int[] arr = {0, 1, 0, 4};
+        duplicateZeroes(arr);
+    }
+    public static void duplicateZeroes(int[] arr){
+        int zeroes = 0;
+        for(int i: arr){
+            if (i == 0) zeroes++;
+        }
+
+        int i = arr.length - 1, j = arr.length + zeroes - 1;
+
+        while(i != j){
+            insert(arr, i, j--);
+            if(arr[i] == 0){
+                insert(arr, i, j--);
+            }
+            i--;
+        }
+
+    }
+
+    private static void insert(int[] arr, int i, int j){
+        if(j < arr.length){
+            arr[j] = arr[i];
+        }
     }
 
     public static int findMaxConsecutiveOnes(int[] nums) {
@@ -74,6 +100,7 @@ public class Main {
         result = arr[k-1];
         return result;
     }
+
 
 
 }
