@@ -19,6 +19,7 @@ public class Csvreader {
         for(User user: listOfUsers) {
             System.out.println(user.getUserName()+" "+user.getFirstName()+" "+user.getLastName()+" "+user.getId());
         }
+
     }
 
     private static List<User> readUsersFromCSV(String fileName) throws IOException {
@@ -28,8 +29,8 @@ public class Csvreader {
 
          try (BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII)) {
             // read the first line from the text file
-             br.readLine();
-             String line = br.readLine(); // loop until all lines are read
+             br.readLine(); // don't use first line
+             String line = br.readLine(); // loop until all lines are read - start from second line
 
             while (lines>=1 && line != null) {
                 // use string.split to load a string array with the values from // each line of // the file, using a comma as the delimiter
