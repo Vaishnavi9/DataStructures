@@ -1,17 +1,22 @@
 package com.hashingProblems;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        int[] a = { 1, 2, 3, -2, -1};
-        int[] ab = { 1,5,5,1,2,2 };
-
-        System.out.println(checkFirstRepeatedOccurrenceType2(ab, ab.length));
+        int[] a = { 1, 2, 3, 1};
+        int[] b = { 1,1,2 };
+        ArrayList<Integer> aa = new ArrayList<Integer>(){{
+            add(2); add(1); add(4); add(10); add(10); }};
+        ArrayList<Integer> bb = new ArrayList<Integer>(){{
+            add(3); add(6); add(2); add(10); add(10); add(1);}};
+       ArrayList<Integer> result = checkCommonElementsInTwoArrays(aa,bb);
+        for (int i: result) {
+            System.out.print(i+" ");
+        }
+        //System.out.println(checkFirstRepeatedOccurrenceType2(ab, ab.length));
 /*        System.out.println(checkFirstRepeatedOccurrenceType1(ab, ab.length));
         System.out.println(checkIfSubArrayContainsSumZero(a, a.length));*/
     }
@@ -60,6 +65,33 @@ public class Main {
         }
         System.out.println(test);
         return a[index];
+    }
+
+
+    //check common elements in 2 arrays
+    public static ArrayList<Integer> checkCommonElementsInTwoArrays(ArrayList<Integer> a, ArrayList<Integer> b){
+         ArrayList<Integer> result = new ArrayList<>();
+         Map<Integer, Integer> f = new HashMap<>();
+
+         for (Integer i : a) {
+             if (f.containsKey(i)) {
+                 f.put(i, f.get(i)+1);
+             }
+             else
+             {
+                 f.put(i,1);
+             }
+
+         }
+
+
+         for (int i = 0; i < b.size(); i++){
+             if (f.containsKey(b.get(i)) && f.get(b.get(i)) > 0 ) {
+                 result.add(b.get(i));
+                 f.put(b.get(i), f.get(b.get(i)) - 1);
+             }
+         }
+         return result;
     }
 
 
