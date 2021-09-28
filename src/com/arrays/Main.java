@@ -14,17 +14,72 @@ public class Main {
 
         //tail recursive are better because we do not do anything once function returns.
         //System.out.println(fact(5,1));
-        int[] arr={23,1,456,3456};
+        int[] arr={1,2,3,4,5};
         /*secondLargest();
         reverseArray();
         removeDup();
         leftRotateByD();
         sortWithSingleLoop();
         binarySearchIterative();*/
-        System.out.println(findNumbers(arr));
-        Object o;
+        //System.out.println(findNumbers(arr));
+        //Object o;
+
+      //rightRotateByd(arr,2);
+        reverseA();
+
     }
-public static int sumN(int n) {
+
+    public static int[] leftRotateByd(int[] arr,int d){
+        int[] result = new int[arr.length];
+        int n = arr.length;
+        d = d % n;
+
+        for(int i =0; i < n; i++ ){
+            result[i] = arr[(i+d)% n];
+        }
+
+        return result;
+    }
+
+    public static void rightRotateByd(int[] arr,int d){
+        int n = arr.length;
+        int[] finalResult = new int[n];
+        d = d % n;
+
+        int in =0;
+        for(int i =n-d; i < n; i++ ){
+            finalResult[in] = arr[i];
+            in++;
+        }
+
+        int in1=2;
+        for (int i=0; i <= d; i++ ){
+            finalResult[in1] = arr[i];
+            in1++;
+        }
+
+        for(int i: finalResult){
+            System.out.print(i+" ");
+        }
+
+    }
+
+    public static void reverseA(){
+        int[] arr = {1,2,3,4,5};
+        int start = 0; int end = arr.length-1;
+        while (start < end) {
+            int temp =arr[start];
+            arr[start] =arr[end];
+            arr[end]= temp;
+            start++;
+            end--;
+        }
+        for(int i: arr){
+            System.out.print(i+" ");
+        }
+    }
+
+    public static int sumN(int n) {
         if (n <= 1) {
             return 1;
         }
@@ -55,10 +110,7 @@ public static void secondLargest(){
         int[] test;
 
                 test = new int[]{78,1089,1,4,900};
-
-
-
-              int r=-1,largest=0;
+                int r=-1,largest=0;
               int index=0;
               for(int i=1;i<test.length;i++){
                   if(test[i]>test[largest]){

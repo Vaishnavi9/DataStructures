@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         //sum of all digits
         List<Integer> li = Arrays.asList( 3,26,1,4 );
-        int sum = li.stream().mapToInt( i-> i).sum();
+        int sum = li.stream().mapToInt(i -> i).sum();
         int sumWay2 = li.stream().reduce( Integer::sum).get();
         //System.out.println(sum+" "+sumWay2);
 
