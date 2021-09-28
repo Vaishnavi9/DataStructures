@@ -12,13 +12,14 @@ public class Main {
             add(2); add(1); add(4); add(10); add(10); }};
         ArrayList<Integer> bb = new ArrayList<Integer>(){{
             add(3); add(6); add(2); add(10); add(10); add(1);}};
-       ArrayList<Integer> result = checkCommonElementsInTwoArrays(aa,bb);
-        for (int i: result) {
-            System.out.print(i+" ");
-        }
+       //ArrayList<Integer> result = checkCommonElementsInTwoArrays(aa,bb);
+
         //System.out.println(checkFirstRepeatedOccurrenceType2(ab, ab.length));
 /*        System.out.println(checkFirstRepeatedOccurrenceType1(ab, ab.length));
         System.out.println(checkIfSubArrayContainsSumZero(a, a.length));*/
+
+        ArrayList<Integer> t = new ArrayList<Integer>(){{add(1); add(2); add(3);}};
+        System.out.println(addOneToNumber(t));
     }
 
 
@@ -92,6 +93,39 @@ public class Main {
              }
          }
          return result;
+    }
+
+    //consider elements of an array as 1 digit and add 1 to it
+    public static ArrayList<Integer> addOneToNumber ( ArrayList<Integer> input ) {
+        int carry = 0;
+        if ( input.size() > 0) {
+            for ( int i = 0; i < input.size(); i ++){
+                if (input.get(0) == 0) {
+                    input.remove(0);
+                }
+                else break;
+            }
+        }
+
+        if ( input.size() == 0) return new ArrayList<Integer>(){{add(1);}};
+
+       int n = input.size() - 1;
+       while ( n >= 0 ){
+           if ( input.get(n) == 9) {
+               input.set(n,0);
+               n--;
+               carry = 1;
+           }
+           else {
+               input.set(n, input.get(n)+1);
+               return input;
+           }
+       }
+           if ( carry == 1 && input.get(0)==0){
+               input.set(0,1);
+               input.add(0);
+           }
+           return input;
     }
 
 
