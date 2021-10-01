@@ -1,4 +1,4 @@
-package com.hashingProblems;
+package com.arrayProblemsSetOneImportant;
 
 import java.util.*;
 
@@ -491,6 +491,6 @@ public class Main {
         return input;
     }
 
-    
+
 
 }
