@@ -23,11 +23,55 @@ public class Main {
 
         int[] inputPrefixSum =  { 1, 2, 3, 4, 5, 6, 7 };
         int[][] query = { {0,3} , {2,5}, {3,6}};
+//prefixMethod(inputPrefixSum, query);
+        //Beggars plate sum
+        ArrayList<ArrayList<Integer>> beggarInput = new ArrayList<ArrayList<Integer>>(){{
+            add( new ArrayList<Integer>(){{add(1); add(2); add(10);}});
+            add( new ArrayList<Integer>(){{add(2); add(3); add(20);}});
+            add( new ArrayList<Integer>(){{add(2); add(5); add(25);}});
+        }};
+        //no. of beggars
+        int k = 5;
+        beggarsPlate(k, beggarInput);
 
-prefixMethod(inputPrefixSum, query);
 
     }
 
+//    Input:
+//    N = 5, D = [[1, 2, 10], [2, 3, 20], [2, 5, 25]]
+//
+//    Return: [10, 55, 45, 25, 25]
+//
+//    Explanation:
+//            => First devotee donated 10 coins to beggars ranging from 1 to 2. Final amount in each beggars pot after first devotee: [10, 10, 0, 0, 0]
+//
+//            => Second devotee donated 20 coins to beggars ranging from 2 to 3. Final amount in each beggars pot after second devotee: [10, 30, 20, 0, 0]
+//
+//            => Third devotee donated 25 coins to beggars ranging from 2 to 5. Final amount in each beggars pot after third devotee: [10, 55, 45, 25, 25]
+
+    public static ArrayList<Integer> beggarsPlate(int k, ArrayList<ArrayList<Integer>> input) {
+        ArrayList<Integer> result= new ArrayList<>(Arrays.asList(new Integer[k]));
+        Collections.fill(result,0);
+
+        for ( int i=0; i < input.size(); i++ ) {
+            int left = input.get(i).get(0) - 1;
+            int right = input.get(i).get(1) - 1;
+            int donation = input.get(i).get(2);
+            result.set(left, result.get(left)+donation);
+            if ( right+1 < k ) {
+                result.set(right+1, result.get(right+1)-donation);
+            }
+
+
+
+        }
+        for ( int i =1; i < k; i++){
+            result.set(i, result.get(i)+result.get(i-1));
+        }
+        for (int i: result) System.out.print(i+" ");
+
+        return result;
+    }
     //query the sum of data in given range from array
     public static void prefixMethod ( int[] input, int[][] query ) {
         int prefix[] = new int[ input.length];
