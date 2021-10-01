@@ -19,8 +19,35 @@ public class Main {
         System.out.println(checkIfSubArrayContainsSumZero(a, a.length));*/
 
         ArrayList<Integer> t = new ArrayList<Integer>(){{add(1); add(2); add(3);}};
-        System.out.println(addOneToNumber(t));
+        //System.out.println(addOneToNumber(t));
+
+        int[] inputPrefixSum =  { 1, 2, 3, 4, 5, 6, 7 };
+        int[][] query = { {0,3} , {2,5}, {3,6}};
+
+prefixMethod(inputPrefixSum, query);
+
     }
+
+    //query the sum of data in given range from array
+    public static void prefixMethod ( int[] input, int[][] query ) {
+        int prefix[] = new int[ input.length];
+        int[] result = new int [query.length ];
+        int sum = 0;
+
+        for ( int i=0; i < input.length; i++ ) {
+            sum += input[i];
+            prefix[i] = sum;
+        }
+
+        for ( int i = 0; i < query.length; i++ ) {
+            int left = query[i][0];
+            int right = query[i][1];
+            result[i] = prefix[right] - prefix[left] + input[left];
+        }
+
+        for ( int i: result) System.out.print(i+" ");
+    }
+
 
 
     //sub array with sum zero
